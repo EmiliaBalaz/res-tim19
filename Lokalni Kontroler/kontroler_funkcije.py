@@ -1,5 +1,9 @@
 import socket
-def Konekcija():
+from Model.LocalDeviceStorage import LocalDeviceStorage
+from Model.LocalDevice import LocalDevice
+
+
+def Konekcija(localDeviceStorage:LocalDeviceStorage):
     server=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     server.bind(('localhost',50000))
     server.listen(10)
@@ -13,7 +17,11 @@ def Konekcija():
         temp= client.recv(1024);
         msg=temp.decode("utf-8")
         print(str(msg))
-        
+
+        values = msg.split(",")
+        localDeviceValue = LocalDevice(values[0], values[1], values[2])
+
+        localDeviceStorage.AddNewDeviceValue(localDeviceValue)
         client.close()
         
         
