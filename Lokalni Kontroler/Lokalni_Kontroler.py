@@ -1,15 +1,16 @@
-
-
-
-import socket
 import kontroler_funkcije
- 
-print("Kontroler pocinje sa radomm!");
-print()
-print()
+from Model.LocalDeviceStorage import LocalDeviceStorage
+
+if __name__ == "__main__":
+    print("Kontroler pocinje sa radom!")
+    print()
+    print()
+
+    deviceStorage = LocalDeviceStorage()
+    kontroler_funkcije.Konekcija(deviceStorage)
 
 
-kontroler_funkcije.Konekcija()
+
 
 
 
