@@ -2,9 +2,8 @@ from xml.dom.minidom import Document
 
 
 class XMLWritter(object):
-    doc = Document()
-
     def __init__(self, structure):
+        self.doc = Document()
         if len(structure) == 1:
             rootName = str(list(structure.keys())[0])
             self.root = self.doc.createElement(rootName)
