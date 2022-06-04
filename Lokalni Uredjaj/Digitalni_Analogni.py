@@ -58,5 +58,9 @@ if __name__ == "__main__":
     ts=datetime.timestamp(dt)
     prekidac =  Digitalni_Uredjaj(id,ts,Stanje.OFF.value)
     prekidac.stateMethod()
+
+    
+
+
    # print(ts)
    #print(id)
