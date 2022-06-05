@@ -11,7 +11,7 @@ class ListaKontrolera():
 
     @staticmethod
     def Ukloni_kontroler(port): 
-        ListaKontrolera.Dict.pop(port)
+        ListaKontrolera.Dict.pop(port) 
         pass
 
 
