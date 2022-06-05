@@ -1,7 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Lokalni Kontroler"
+    "\\AMS",
+    "\\AMS\\Model",
+    "\\AMS\\Service",
+    "\\Lokalni Kontroler",
+    "\\Lokalni Kontroler\\Common",
+    "\\Lokalni Kontroler\\Model",
+    "\\Lokalni Uredjaj"
   ],
   "SelectedNode": "\\Lokalni Kontroler\\Lokalni_Kontroler.py",
   "PreviewInSolutionExplorer": false
