@@ -56,7 +56,7 @@ if __name__ == "__main__":
     id=uuid.uuid1()
     dt=datetime.now()
     ts=datetime.timestamp(dt)
-    prekidac =  Digitalni_Uredjaj(id,ts,Stanje.OFF.value)
+    prekidac =  Digitalni_Uredjaj(id,ts,Stanje.OFF.value) 
     prekidac.stateMethod()
 
     
