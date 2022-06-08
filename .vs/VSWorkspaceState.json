@@ -4,7 +4,9 @@
     "\\AMS",
     "\\AMS\\Model",
     "\\AMS\\Service",
+    "\\AMS\\TimeSim",
     "\\Lokalni Kontroler",
+    "\\Lokalni Kontroler\\.idea",
     "\\Lokalni Kontroler\\Common",
     "\\Lokalni Kontroler\\Model",
     "\\Lokalni Uredjaj"
