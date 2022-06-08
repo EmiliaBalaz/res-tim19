@@ -5,8 +5,8 @@ import sys
 import xml.etree.ElementTree as ET
 from Model.LocalDeviceStorage import LocalDeviceStorage
 from Model.LocalDevice import LocalDevice
-sys.path.insert(0,'C:\\Users\\Cvijetin Glisic\\Desktop\\GIT_REPOZITORIJUM\\GIT\\AMS\\TimeSim')
-import TimeSim
+#sys.path.insert(0,'..\\AMS\\TimeSim')
+from Common.TimeSim import TimeSimulation
 
 
 def Konekcija(localDeviceStorage:LocalDeviceStorage,port):
@@ -30,10 +30,10 @@ def Konekcija(localDeviceStorage:LocalDeviceStorage,port):
 def Slanje_na_AMS(port):
     while(True):
         
-        TimeSim.TimeSimulation.COUNT_START()
-        while(TimeSim.TimeSimulation.TimePassed()<=300): #300 sekundi-5 minuta
+        TimeSimulation.COUNT_START()
+        while(TimeSimulation.TimePassed()<=300): #300 sekundi-5 minuta
             pass
-        xx=TimeSim.TimeSimulation.TimePassed()  #provera samo da li radi
+        xx=TimeSimulation.TimePassed()  #provera samo da li radi
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect(("localhost", port))
         msg=str(xx)
@@ -42,7 +42,7 @@ def Slanje_na_AMS(port):
 
         
 def Upisi_u_listu(Port,Ime):
-    lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Desktop\\GIT_REPOZITORIJUM\\GIT\\Lokalni Uredjaj\\ListaKontrolera.xml")
+    lista=ET.parse("Model\\ListaKontrolera.xml")
     root=lista.getroot()
     
     kontroler=ET.SubElement(root,'Kontroler')
@@ -52,7 +52,7 @@ def Upisi_u_listu(Port,Ime):
     naziv=ET.SubElement(kontroler,'naziv')
     port.text=str(Port)
     naziv.text=str(Ime)
-    lista.write('C:\\Users\\Cvijetin Glisic\\Desktop\\GIT_REPOZITORIJUM\\GIT\\Lokalni Uredjaj\\ListaKontrolera.xml')
+    lista.write('Model\\ListaKontrolera.xml')
     
     
    
@@ -60,7 +60,7 @@ def Upisi_u_listu(Port,Ime):
 
      
 def Exit_Handler(Port):
-    lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Desktop\\GIT_REPOZITORIJUM\\GIT\\Lokalni Uredjaj\\ListaKontrolera.xml")
+    lista=ET.parse("Model\\ListaKontrolera.xml")
     root=lista.getroot()
     
     for x in root:
