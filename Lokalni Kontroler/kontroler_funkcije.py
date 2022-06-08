@@ -5,6 +5,8 @@ import sys
 import xml.etree.ElementTree as ET
 from Model.LocalDeviceStorage import LocalDeviceStorage
 from Model.LocalDevice import LocalDevice
+sys.path.insert(0,'C:\\Users\\Cvijetin Glisic\\Desktop\\GIT_REPOZITORIJUM\\GIT\\AMS\\TimeSim')
+import TimeSim
 
 
 def Konekcija(localDeviceStorage:LocalDeviceStorage,port):
@@ -27,10 +29,11 @@ def Konekcija(localDeviceStorage:LocalDeviceStorage,port):
         
 def Slanje_na_AMS(port):
     while(True):
-        start=time.time()
-        while((time.time()-start)<=300):
+        
+        TimeSim.TimeSimulation.COUNT_START()
+        while(TimeSim.TimeSimulation.TimePassed()<=300): #300 sekundi-5 minuta
             pass
-        xx=time.time()-start
+        xx=TimeSim.TimeSimulation.TimePassed()  #provera samo da li radi
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect(("localhost", port))
         msg=str(xx)
