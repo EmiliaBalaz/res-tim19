@@ -2,8 +2,9 @@ import kontroler_funkcije
 from Model.LocalDeviceStorage import LocalDeviceStorage
 import sys
 import threading
-sys.path.insert(0,'C:\\Users\\Cvijetin Glisic\\Desktop\\GIT_REPOZITORIJUM\\GIT\\Lokalni Uredjaj')
-import ListaKontrolera
+import atexit
+
+
 if __name__ == "__main__":
     print("Kontroler pocinje sa radom!")
     print()
@@ -30,17 +31,20 @@ if __name__ == "__main__":
 
          
          
-    ListaKontrolera.ListaKontrolera.Dodaj_kontroler(int(port),naz)
     
+    kontroler_funkcije.Upisi_u_listu(port,naz)
     print()
     print()
-
+    atexit.register(kontroler_funkcije.Exit_Handler,port)
     deviceStorage = LocalDeviceStorage()
+    y=threading.Thread(target=kontroler_funkcije.Konekcija,args=(deviceStorage,int(port)),daemon=True)
+    y.start()
     x=threading.Thread(target=kontroler_funkcije.Slanje_na_AMS,args=(50005,),daemon=True)
     x.start()
-    kontroler_funkcije.Konekcija(deviceStorage,int(port))
-
+   
+    kontroler_funkcije.Izadji_Iz_Aplikacije()
     
+       
 
     
     
