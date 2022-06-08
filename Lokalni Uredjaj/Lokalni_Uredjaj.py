@@ -7,6 +7,7 @@ if __name__ == "__main__":
     print("UREDJAJ JE USPESNO POKRENUT:")
 
     #TODO: logika za pravljenje lokalnog uredjaja-EMILIJIN DEO
+    Uredjaj_funkcije.Klijent_konekcija(50002)
 
    
     print("LISTA DOSTUPNIH KONTROLERA:")
