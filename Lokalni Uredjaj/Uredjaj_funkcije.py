@@ -9,31 +9,37 @@ def Klijent_konekcija(port):
     print("2.Digitalni")
     localDeviceNum = input()
     if localDeviceNum == "1":
-        print("Odabrali ste Analogni uredjaj.")
-        print("Id: ")
-        idAnalog = input()
-        print("Stanje: ")
-        stateAnalog = input()
-        msg="{0}/{1}/{2}".format(idAnalog,str(datetime.now()),stateAnalog)
-        PosaljiPoruku(msg,port)
-        while True:
-            print("Promenite vrednost uredjaja: ")
-            stateAnalog = input()
-            msg="{0}/{1}/{2}".format(idAnalog,str(datetime.now()),stateAnalog)
-            PosaljiPoruku(msg,port)
+        AnalogniUredjaj(port)
     elif localDeviceNum == "2":
-        print("Odabrali ste Digitalni uredjaj.")
-        print("Id: ")
-        idDigital = input()
-        print("Izaberite neko od sledecih stanja: ON, OFF, OPEN, CLOSE")
+        DigitalniUredjaj(port)
+
+def AnalogniUredjaj(port):
+    print("Odabrali ste Analogni uredjaj.")
+    print("Id: ")
+    idAnalog = input()
+    print("Stanje: ")
+    stateAnalog = input()
+    msg = "{0}/{1}/{2}".format(idAnalog, str(datetime.now()), stateAnalog)
+    PosaljiPoruku(msg, port)
+    while True:
+        print("Promenite vrednost uredjaja: ")
+        stateAnalog = input()
+        msg = "{0}/{1}/{2}".format(idAnalog, str(datetime.now()), stateAnalog)
+        PosaljiPoruku(msg, port)
+
+def DigitalniUredjaj(port):
+    print("Odabrali ste Digitalni uredjaj.")
+    print("Id: ")
+    idDigital = input()
+    print("Izaberite neko od sledecih stanja: ON, OFF, OPEN, CLOSE")
+    stateDigital = input()
+    msg = "{0}/{1}/{2}".format(idDigital, str(datetime.now()), stateDigital)
+    PosaljiPoruku(msg, port)
+    while True:
+        print("Promenite stanje uredjaja: ")
         stateDigital = input()
-        msg = "{0}/{1}/{2}".format(idDigital, str(datetime.now()), stateDigital) 
-        PosaljiPoruku(msg,port)
-        while True:
-            print("Promenite stanje uredjaja: ")
-            stateDigital = input()
-            msg="{0}/{1}/{2}".format(idDigital, str(datetime.now()), stateDigital)
-            PosaljiPoruku(msg,port)
+        msg = "{0}/{1}/{2}".format(idDigital, str(datetime.now()), stateDigital)
+        PosaljiPoruku(msg, port)
 
 def PosaljiPoruku(msg,port):
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -42,7 +48,7 @@ def PosaljiPoruku(msg,port):
     client.close()
 
 def Izlistaj_Kontrolere():
-     lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Desktop\\GIT_REPOZITORIJUM\\GIT\\Lokalni Uredjaj\\ListaKontrolera.xml")
+     lista=ET.parse("ListaKontrolera.xml")
      root=lista.getroot()
      for x in root:
          print("KONTROLER: "+x[1].text+"   PORT:   "+x[0].text)
@@ -50,7 +56,7 @@ def Izlistaj_Kontrolere():
      pass
 
 def SviKontroleri():
-    lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Desktop\\GIT_REPOZITORIJUM\\GIT\\Lokalni Uredjaj\\ListaKontrolera.xml")
+    lista=ET.parse("ListaKontrolera.xml")
     root=lista.getroot()
     Dict={}
     index=0
