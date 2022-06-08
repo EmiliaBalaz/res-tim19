@@ -1,4 +1,6 @@
 import socket
+from typing import Dict
+import xml.etree.ElementTree as ET
 from datetime import datetime
 
 def Klijent_konekcija(port):
@@ -38,3 +40,22 @@ def PosaljiPoruku(msg,port):
     client.connect(("localhost", port))
     client.send(bytes(msg, 'utf-8'))
     client.close()
+
+def Izlistaj_Kontrolere():
+     lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Desktop\\GIT_REPOZITORIJUM\\GIT\\Lokalni Uredjaj\\ListaKontrolera.xml")
+     root=lista.getroot()
+     for x in root:
+         print("KONTROLER: "+x[1].text+"   PORT:   "+x[0].text)
+         pass
+     pass
+
+def SviKontroleri():
+    lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Desktop\\GIT_REPOZITORIJUM\\GIT\\Lokalni Uredjaj\\ListaKontrolera.xml")
+    root=lista.getroot()
+    Dict={}
+    index=0
+    for x in root:
+        Dict[x[0].text]=x[1].text
+        pass
+    pass
+    return Dict
