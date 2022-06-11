@@ -83,10 +83,14 @@ def PosaljiPoruku(msg,port):
 def Izlistaj_Kontrolere():
      lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
      root=lista.getroot()
+     Dict ={}
+     index = 0
      for x in root:
          print("KONTROLER: "+x[1].text+"   PORT:   "+x[0].text)
+         Dict[x[0].text] = x[1].text
          pass
      pass
+     return Dict
 
 def SviKontroleri():
     lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
