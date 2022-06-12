@@ -3,85 +3,89 @@ from typing import Dict
 import xml.etree.ElementTree as ET
 from datetime import datetime
 import sys
-import LokalniUredjaj.Digitalni_Analogni
-from LokalniUredjaj import Digitalni_Analogni
+import LOKALNI_UREDJAJ.Digitalni_Analogni
+from LOKALNI_UREDJAJ import Digitalni_Analogni
 
 
-def Klijent_konekcija(port):
+def Klijent_konekcija():
     print("Izaberite jedan od uredjaja: ")
     print("1.Analogni")
     print("2.Digitalni")
     localDeviceNum = input()
     if localDeviceNum == "1":
-        UnosAnalognogUredjaja(port)
+        return "ANALOGNI"
     elif localDeviceNum == "2":
-        UnosDigitalnogUredjaja(port)
+        return "DIGITALNI"
+    else:
+        print("GRESKA U UNOSU!POKUSAJTE PONOVO!")
+        print()
+        return "ERROR"
 
-def UnosAnalognogUredjaja(port):
+def UnosAnalognogUredjaja():
     print("Odabrali ste Analogni uredjaj.")
     print("Id: ")
     idAnalog = input()
     print("Stanje: ")
     stateAnalog = input()
-    intTryParse(stateAnalog)
-    msg = "{0}/{1}/{2}".format(idAnalog, str(datetime.now()), stateAnalog)
-    PosaljiPoruku(msg, port)
-    while True:
-        PromenaStanjaAnalognogUredjaja(port, idAnalog)
+    if(intTryParse(stateAnalog)=="ERROR"):
+        print("GRESKA U UNOSU,STANJE MORA BITI CEO BROJ!")
+        print()
+        return "","ERROR"
 
-def UnosDigitalnogUredjaja(port):
+    msg = "{0}/{1}/{2}".format(idAnalog, str(datetime.now()), stateAnalog)
+    return idAnalog,msg
+
+
+
+def UnosDigitalnogUredjaja():
     print("Odabrali ste Digitalni uredjaj.")
     print("Id: ")
     idDigital = input()
     print("Izaberite neko od sledecih stanja: ON, OFF, OPEN, CLOSE")
     stateDigital = input()
-    if (stringTryParse(stateDigital) != True):
-        stringTryParse(stateDigital)
+    if (stringTryParse(stateDigital)== "ERROR"):
+        print("POGRESAN UNOS STANJA.POKUSAJTE PONOVO!")
+        print()
+        return "","ERROR"
     msg = "{0}/{1}/{2}".format(idDigital, str(datetime.now()), stateDigital)
-    PosaljiPoruku(msg, port)
-    while True:
-        PromenaStanjeDigitalnogUredjaja(port, idDigital)
+    return idDigital,msg
 
 
-def PromenaStanjeDigitalnogUredjaja(port, idDigital):
-    print("Da li zelite da promenite stanje uredjaja? ")
-    print("1.DA")
-    print("2.NE")
-    odgovor = input()
-    if odgovor == "1":
-        print("Promenite stanje uredjaja: ")
+def PromenaStanjeDigitalnogUredjaja( idDigital):
+
+        print("Promenite stanje uredjaja(ON,OFF,OPEN,CLOSE): ")
         stateDigital = input()
-        if (stringTryParse(stateDigital) != True):
-            stringTryParse(stateDigital)
+        if (stringTryParse(stateDigital) == "ERROR"):
+            print("NESTE UNELI PODRZANU VREDNOST,POKUSAJTE PONOVO!")
+            print()
+            return "ERROR"
         msg = "{0}/{1}/{2}".format(idDigital, str(datetime.now()), stateDigital)
-        PosaljiPoruku(msg, port)
-        return Digitalni_Analogni.Digitalni_Uredjaj(idDigital, str(datetime.now()), stateDigital)
-    elif odgovor == "2":
-        sys.exit();
+        return msg
 
-def PromenaStanjaAnalognogUredjaja(port, idAnalog):
-    print("Da li zelite da promenite stanje uredjaja? ")
-    print("1.DA")
-    print("2.NE")
-    odgovor = input()
-    if odgovor == "1":
+
+
+def PromenaStanjaAnalognogUredjaja( idAnalog):
+
         print("Promenite vrednost uredjaja: ")
         stateAnalog = input()
-        intTryParse(stateAnalog)
+        if(intTryParse(stateAnalog)=="ERROR"):
+            print("NESTE UNELI PODRZANU VREDNOST,POKUSAJTE PONOVO!")
+            print()
+            return "ERROR"
         msg = "{0}/{1}/{2}".format(idAnalog, str(datetime.now()), stateAnalog)
-        PosaljiPoruku(msg, port)
-        return Digitalni_Analogni.Analogni_Uredjaj(idAnalog, str(datetime.now()), stateAnalog)
-    elif odgovor == "2":
-        sys.exit();
+        return msg
+
+
 
 def PosaljiPoruku(msg,port):
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect(("localhost", port))
     client.send(bytes(msg, 'utf-8'))
     client.close()
+    return msg
 
 def Izlistaj_Kontrolere():
-     lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
+     lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
      root=lista.getroot()
      Dict ={}
      index = 0
@@ -93,7 +97,7 @@ def Izlistaj_Kontrolere():
      return Dict
 
 def SviKontroleri():
-    lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
+    lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
     root=lista.getroot()
     Dict={}
     index=0
@@ -110,9 +114,9 @@ def PonovoUnesiStanjeA(state):
 
 def intTryParse(state):
     try:
-        return int(state), True
+        return int(state)
     except ValueError:
-        return PonovoUnesiStanjeA(state)
+        return "ERROR"
 
 def PonovoUnesiStanjeD(state):
     print("Za stanje morate uneti ON/OFF/OPEN/CLOSE: ")
@@ -121,8 +125,27 @@ def PonovoUnesiStanjeD(state):
 
 def stringTryParse(state):
     if(state == "ON" or state == "OFF" or state =="OPEN" or state == "CLOSE"):
-        return True
+        return "True"
     else:
-        return PonovoUnesiStanjeD(state)
+        return "ERROR"
+
+
+def Unos_porta():
+
+
+        print("UNESITE PORT:")
+        port = input()
+        Dict = {}
+        Dict = SviKontroleri()
+        for xx in Dict.keys():
+            if (port == str(xx)):
+                print("POVEZIVANJE SA KONTROLEROM...")
+                return(port)
+
+        print("KONTROLER KOJI STE ZAHTEVALI NIJE DOSTUPAN.UNESITE DRUGI PORT:")
+        return("ERROR")
+
+
+
 
 

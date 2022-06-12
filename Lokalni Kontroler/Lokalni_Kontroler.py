@@ -39,7 +39,7 @@ if __name__ == "__main__":
     deviceStorage = LocalDeviceStorage()
     y=threading.Thread(target=kontroler_funkcije.Konekcija,args=(deviceStorage,int(port)),daemon=True)
     y.start()
-    x=threading.Thread(target=kontroler_funkcije.Slanje_na_AMS,args=(50005,),daemon=True)
+    x=threading.Thread(target=kontroler_funkcije.Slanje_na_AMS,args=(50015,),daemon=True)
     x.start()
    
     kontroler_funkcije.Izadji_Iz_Aplikacije()

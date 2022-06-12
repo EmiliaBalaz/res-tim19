@@ -1,9 +1,9 @@
 import unittest
 import sys
 
-from LokalniUredjaj.Uredjaj_funkcije import SviKontroleri
+from LOKALNI_UREDJAJ.LokalniUredjaj.Uredjaj_funkcije import SviKontroleri
 
-sys.path.insert(0,'C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml')
+sys.path.insert(0,'C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml')
 
 
 class MyTestCase(unittest.TestCase):
@@ -36,6 +36,7 @@ class MyTestCase(unittest.TestCase):
         Dict2 = {}
         Dict2["50002"] = "p1"
         self.assertNotEqual(Dict1, Dict2)
+
 
 if __name__ == '__main__':
     unittest.main()
