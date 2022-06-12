@@ -3,8 +3,8 @@ from typing import Dict
 import xml.etree.ElementTree as ET
 from datetime import datetime
 import sys
-import LOKALNI_UREDJAJ.Digitalni_Analogni
-from LOKALNI_UREDJAJ import Digitalni_Analogni
+#import LOKALNI_UREDJAJ.Digitalni_Analogni
+#from LOKALNI_UREDJAJ import Digitalni_Analogni
 
 
 def Klijent_konekcija():
@@ -35,8 +35,6 @@ def UnosAnalognogUredjaja():
     msg = "{0}/{1}/{2}".format(idAnalog, str(datetime.now()), stateAnalog)
     return idAnalog,msg
 
-
-
 def UnosDigitalnogUredjaja():
     print("Odabrali ste Digitalni uredjaj.")
     print("Id: ")
@@ -50,9 +48,7 @@ def UnosDigitalnogUredjaja():
     msg = "{0}/{1}/{2}".format(idDigital, str(datetime.now()), stateDigital)
     return idDigital,msg
 
-
-def PromenaStanjeDigitalnogUredjaja( idDigital):
-
+def PromenaStanjeDigitalnogUredjaja(idDigital):
         print("Promenite stanje uredjaja(ON,OFF,OPEN,CLOSE): ")
         stateDigital = input()
         if (stringTryParse(stateDigital) == "ERROR"):
@@ -62,10 +58,7 @@ def PromenaStanjeDigitalnogUredjaja( idDigital):
         msg = "{0}/{1}/{2}".format(idDigital, str(datetime.now()), stateDigital)
         return msg
 
-
-
-def PromenaStanjaAnalognogUredjaja( idAnalog):
-
+def PromenaStanjaAnalognogUredjaja(idAnalog):
         print("Promenite vrednost uredjaja: ")
         stateAnalog = input()
         if(intTryParse(stateAnalog)=="ERROR"):
@@ -75,8 +68,6 @@ def PromenaStanjaAnalognogUredjaja( idAnalog):
         msg = "{0}/{1}/{2}".format(idAnalog, str(datetime.now()), stateAnalog)
         return msg
 
-
-
 def PosaljiPoruku(msg,port):
     client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client.connect(("localhost", port))
@@ -85,7 +76,7 @@ def PosaljiPoruku(msg,port):
     return msg
 
 def Izlistaj_Kontrolere():
-     lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
+     lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
      root=lista.getroot()
      Dict ={}
      index = 0
@@ -97,7 +88,7 @@ def Izlistaj_Kontrolere():
      return Dict
 
 def SviKontroleri():
-    lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
+    lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
     root=lista.getroot()
     Dict={}
     index=0
@@ -129,10 +120,7 @@ def stringTryParse(state):
     else:
         return "ERROR"
 
-
 def Unos_porta():
-
-
         print("UNESITE PORT:")
         port = input()
         Dict = {}

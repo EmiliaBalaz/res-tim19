@@ -1,5 +1,6 @@
 import unittest
-import LOKALNI_UREDJAJ.LokalniUredjaj.Uredjaj_funkcije as fun
+#import LOKALNI_UREDJAJ.LokalniUredjaj.Uredjaj_funkcije as fun
+import LokalniUredjaj.Uredjaj_funkcije as fun
 import mock
 
 class MyTestCase(unittest.TestCase):

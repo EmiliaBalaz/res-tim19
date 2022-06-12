@@ -5,19 +5,15 @@ import unittest
 import socket
 import mock
 
-from LOKALNI_UREDJAJ.LokalniUredjaj.Uredjaj_funkcije import UnosAnalognogUredjaja
-
-
-
-
+from LokalniUredjaj.Uredjaj_funkcije import UnosAnalognogUredjaja
 
 
 class MyTestCase(unittest.TestCase):
     def test_case1(self):
 
-        with mock.patch('builtins.input', return_value="OFF"):
-            id,str=UnosAnalognogUredjaja()
-            self.assertEqual(str, "ERROR")
+        with mock.patch('builtins.input', return_value="OFF"):  #funkcija input da vrati off
+            id,msg=UnosAnalognogUredjaja()
+            self.assertEqual(msg, "ERROR")
             self.assertEqual(id,"")
 
     def test_case2(self):
