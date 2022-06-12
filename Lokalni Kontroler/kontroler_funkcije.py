@@ -42,7 +42,7 @@ def Slanje_na_AMS(port):
 
         
 def Upisi_u_listu(Port,Ime):
-    lista=ET.parse("Model\\ListaKontrolera.xml")
+    lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
     root=lista.getroot()
     
     kontroler=ET.SubElement(root,'Kontroler')
@@ -52,7 +52,7 @@ def Upisi_u_listu(Port,Ime):
     naziv=ET.SubElement(kontroler,'naziv')
     port.text=str(Port)
     naziv.text=str(Ime)
-    lista.write('Model\\ListaKontrolera.xml')
+    lista.write('C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml')
     
     
    
@@ -60,7 +60,7 @@ def Upisi_u_listu(Port,Ime):
 
      
 def Exit_Handler(Port):
-    lista=ET.parse("Model\\ListaKontrolera.xml")
+    lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
     root=lista.getroot()
     
     for x in root:
@@ -69,7 +69,7 @@ def Exit_Handler(Port):
             
 
 
-    lista.write('C:\\Users\\Cvijetin Glisic\\Desktop\\GIT_REPOZITORIJUM\\GIT\\Lokalni Uredjaj\\ListaKontrolera.xml')
+    lista.write("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
 
     pass
     

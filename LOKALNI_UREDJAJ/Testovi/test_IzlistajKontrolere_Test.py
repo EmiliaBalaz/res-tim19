@@ -1,6 +1,6 @@
 import unittest
 
-from LokalniUredjaj.Uredjaj_funkcije import Izlistaj_Kontrolere
+from LOKALNI_UREDJAJ.LokalniUredjaj.Uredjaj_funkcije import Izlistaj_Kontrolere
 
 
 class MyTestCase(unittest.TestCase):

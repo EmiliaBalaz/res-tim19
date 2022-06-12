@@ -6,5 +6,5 @@ if __name__ == "__main__":
     print()
 
    
-    AMSService = AMSService(50005)
+    AMSService = AMSService(50015)
     AMSService.Listen()
