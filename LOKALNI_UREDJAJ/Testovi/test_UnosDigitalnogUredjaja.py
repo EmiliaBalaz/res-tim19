@@ -7,7 +7,7 @@ import unittest
 import socket
 import mock
 
-from LOKALNI_UREDJAJ.LokalniUredjaj.Uredjaj_funkcije import UnosDigitalnogUredjaja
+from LokalniUredjaj.Uredjaj_funkcije import UnosDigitalnogUredjaja
 
 
 
