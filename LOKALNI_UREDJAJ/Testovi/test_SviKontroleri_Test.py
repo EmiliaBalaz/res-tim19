@@ -1,9 +1,10 @@
 import unittest
 import sys
 
-from LOKALNI_UREDJAJ.LokalniUredjaj.Uredjaj_funkcije import SviKontroleri
+#from LOKALNI_UREDJAJ.LokalniUredjaj.Uredjaj_funkcije import SviKontroleri
+from LokalniUredjaj.Uredjaj_funkcije import SviKontroleri
 
-sys.path.insert(0,'C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml')
+sys.path.insert(0,'C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml')
 
 
 class MyTestCase(unittest.TestCase):
