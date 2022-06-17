@@ -10,6 +10,7 @@ class MyTestCase(unittest.TestCase):
         with mock.patch('builtins.input', return_value=port):
             unetiPort = Unos_porta()
 
+
         self.assertEqual(unetiPort, port)
 
     def test_case2(self):

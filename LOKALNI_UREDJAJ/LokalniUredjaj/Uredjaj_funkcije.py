@@ -75,8 +75,39 @@ def PosaljiPoruku(msg,port):
     client.close()
     return msg
 
+def Primi_Kontrolere():
+    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client.connect(("localhost",50098))
+    msg="t"
+    client.send(bytes(msg, 'utf-8'))
+    msg=client.recv(1024)
+    msg = msg.decode("utf-8")
+    client.close()
+    return msg
+
+def Upisi_Kontrolere(msg):
+    lista = ET.parse("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\LOKALNI_UREDJAJ\\LokalnaListaKontrolera.xml")
+    root = lista.getroot()
+    root.clear()
+    a=msg.split('&')
+
+    for x in a:
+        x=x.split('/')
+        kontroler = ET.SubElement(root, 'Kontroler')
+
+        portt = ET.SubElement(kontroler, 'port')
+
+        naziv = ET.SubElement(kontroler, 'naziv')
+        portt.text = x[0]
+
+        naziv.text = x[1]
+        lista.write("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\LOKALNI_UREDJAJ\\LokalnaListaKontrolera.xml")
+
+
+
+
 def Izlistaj_Kontrolere():
-     lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
+     lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\LOKALNI_UREDJAJ\\LokalnaListaKontrolera.xml")
      root=lista.getroot()
      Dict ={}
      index = 0
@@ -88,7 +119,7 @@ def Izlistaj_Kontrolere():
      return Dict
 
 def SviKontroleri():
-    lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
+    lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\LOKALNI_UREDJAJ\\LokalnaListaKontrolera.xml")
     root=lista.getroot()
     Dict={}
     index=0

@@ -14,9 +14,10 @@ if __name__ == "__main__":
 
 
    
+    print(LokalniUredjaj.Uredjaj_funkcije.Primi_Kontrolere())
+    LokalniUredjaj.Uredjaj_funkcije.Upisi_Kontrolere(LokalniUredjaj.Uredjaj_funkcije.Primi_Kontrolere())
     print("LISTA DOSTUPNIH KONTROLERA:")
     LokalniUredjaj.Uredjaj_funkcije.Izlistaj_Kontrolere()
-    
     print()
     print()
     print()
