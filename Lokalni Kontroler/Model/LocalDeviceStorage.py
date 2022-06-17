@@ -15,3 +15,4 @@ class LocalDeviceStorage:
 
         f = open("deviceValues.xml", "w")
         f.write(xmlWritter.doc.toxml("UTF-8").decode("UTF=8"))
+

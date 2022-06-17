@@ -1,4 +1,4 @@
-from Service.AMS import AMSService
+from Service.AMS import Konekcija
 
 if __name__ == "__main__":
     print("Kontroler pocinje sa radom!")
@@ -6,5 +6,5 @@ if __name__ == "__main__":
     print()
 
    
-    AMSService = AMSService(50015)
+    AMSService = Konekcija(50015)
     AMSService.Listen()
