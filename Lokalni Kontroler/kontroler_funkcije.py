@@ -29,7 +29,7 @@ def Konekcija(localDeviceStorage:LocalDeviceStorage,port):
 
 
 def IscitavanjePodataka():
-    lista = ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\deviceValues.xml")
+    lista = ET.parse("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\deviceValues.xml")
     root = lista.getroot()
 
     for x in root:
@@ -60,37 +60,23 @@ def Slanje_na_AMS(port):
         client.close()
 
         
-def Upisi_u_listu(Port,Ime):
-    lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
-    root=lista.getroot()
-    
-    kontroler=ET.SubElement(root,'Kontroler')
-    
-    port=ET.SubElement(kontroler,'port')
-    
-    naziv=ET.SubElement(kontroler,'naziv')
-    port.text=str(Port)
-    naziv.text=str(Ime)
-    lista.write('C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml')
+
     
     
    
-    pass
+
 
      
-def Exit_Handler(Port):
-    lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
-    root=lista.getroot()
-    
-    for x in root:
-        if x[0].text==str(Port):
-            root.remove(x)
-            
+def Exit_Handler(Port,devname):
+    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client.connect(("localhost", 50099))
+
+    msg = "{0}/{1}/{2}".format("DELETE", Port, devname)
+    client.send(bytes(msg, 'utf-8'))
+    client.close()
+    return msg
 
 
-    lista.write("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
-
-    pass
     
 def Izadji_Iz_Aplikacije():
     print("DA BI STE IZASLI IZ APLIKACIJE U BILO KOM TRENUTKU UNESITE \"exit\" i pritisnite ENTER")
@@ -103,6 +89,15 @@ def Izadji_Iz_Aplikacije():
         pass
     sys.exit()
 
+def Javi_Se_NA_AMS(port,devname):
+    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client.connect(("localhost", 50099))
+
+
+    msg = "{0}/{1}/{2}".format("ADD",port,devname)
+    client.send(bytes(msg, 'utf-8'))
+    client.close()
+    return msg
 
     
 

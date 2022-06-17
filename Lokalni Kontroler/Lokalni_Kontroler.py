@@ -32,10 +32,10 @@ if __name__ == "__main__":
          
          
     
-    kontroler_funkcije.Upisi_u_listu(port,naz)
+    kontroler_funkcije.Javi_Se_NA_AMS(port,naz)
     print()
     print()
-    atexit.register(kontroler_funkcije.Exit_Handler,port)
+    atexit.register(kontroler_funkcije.Exit_Handler,port,naz)
     deviceStorage = LocalDeviceStorage()
     y=threading.Thread(target=kontroler_funkcije.Konekcija,args=(deviceStorage,int(port)),daemon=True)
     y.start()
