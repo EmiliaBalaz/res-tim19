@@ -26,23 +26,42 @@ def Konekcija(localDeviceStorage:LocalDeviceStorage,port):
         localDeviceValue = LocalDevice(values[0], values[1], values[2])
         localDeviceStorage.AddNewDeviceValue(localDeviceValue)
         client.close()
+
+
+def IscitavanjePodataka():
+    lista = ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\deviceValues.xml")
+    root = lista.getroot()
+
+    for x in root:
+        code = x[0].text
+        timeStamp = x[1].text
+        value = x[2].text
+        pass
+    pass
+    print("Podaci koji su iscitani iz XML-a")
+    print(code, timeStamp, value)
+    return code, timeStamp, value
+
+
         
 def Slanje_na_AMS(port):
-    while(True):
-        
+    while (True):
+
         TimeSimulation.COUNT_START()
-        while(TimeSimulation.TimePassed()<=300): #300 sekundi-5 minuta
+        while (TimeSimulation.TimePassed() <= 300):  # 300 sekundi-5 minuta
             pass
-        xx=TimeSimulation.TimePassed()  #provera samo da li radi
+        xx = TimeSimulation.TimePassed()  # provera samo da li radi
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect(("localhost", port))
-        msg=str(xx)
+        code, timeStamp, value = IscitavanjePodataka()
+
+        msg = "{0}/{1}/{2}".format(code, timeStamp, value)
         client.send(bytes(msg, 'utf-8'))
         client.close()
 
         
 def Upisi_u_listu(Port,Ime):
-    lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
+    lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
     root=lista.getroot()
     
     kontroler=ET.SubElement(root,'Kontroler')
@@ -52,7 +71,7 @@ def Upisi_u_listu(Port,Ime):
     naziv=ET.SubElement(kontroler,'naziv')
     port.text=str(Port)
     naziv.text=str(Ime)
-    lista.write('C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml')
+    lista.write('C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml')
     
     
    
@@ -60,7 +79,7 @@ def Upisi_u_listu(Port,Ime):
 
      
 def Exit_Handler(Port):
-    lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
+    lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
     root=lista.getroot()
     
     for x in root:
@@ -69,7 +88,7 @@ def Exit_Handler(Port):
             
 
 
-    lista.write("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
+    lista.write("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\Model\\ListaKontrolera.xml")
 
     pass
     
