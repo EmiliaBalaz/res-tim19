@@ -1,4 +1,4 @@
-import AMS.Service.AMS as ams
+import Service.AMS as ams
 
 
 def Logovanje_koraci():
