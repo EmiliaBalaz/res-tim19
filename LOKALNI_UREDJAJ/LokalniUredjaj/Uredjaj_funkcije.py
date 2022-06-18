@@ -32,7 +32,7 @@ def UnosAnalognogUredjaja():
         print()
         return "","ERROR"
 
-    msg = "{0}/{1}/{2}".format(idAnalog, str(datetime.now()), stateAnalog)
+    msg = "1/{0}/{1}/{2}".format(idAnalog, str(datetime.now()), stateAnalog)
     return idAnalog,msg
 
 def UnosDigitalnogUredjaja():
@@ -45,7 +45,7 @@ def UnosDigitalnogUredjaja():
         print("POGRESAN UNOS STANJA.POKUSAJTE PONOVO!")
         print()
         return "","ERROR"
-    msg = "{0}/{1}/{2}".format(idDigital, str(datetime.now()), stateDigital)
+    msg = "2/{0}/{1}/{2}".format(idDigital, str(datetime.now()), stateDigital)
     return idDigital,msg
 
 def PromenaStanjeDigitalnogUredjaja(idDigital):
@@ -55,7 +55,7 @@ def PromenaStanjeDigitalnogUredjaja(idDigital):
             print("NESTE UNELI PODRZANU VREDNOST,POKUSAJTE PONOVO!")
             print()
             return "ERROR"
-        msg = "{0}/{1}/{2}".format(idDigital, str(datetime.now()), stateDigital)
+        msg = "2/{0}/{1}/{2}".format(idDigital, str(datetime.now()), stateDigital)
         return msg
 
 def PromenaStanjaAnalognogUredjaja(idAnalog):
@@ -65,7 +65,7 @@ def PromenaStanjaAnalognogUredjaja(idAnalog):
             print("NESTE UNELI PODRZANU VREDNOST,POKUSAJTE PONOVO!")
             print()
             return "ERROR"
-        msg = "{0}/{1}/{2}".format(idAnalog, str(datetime.now()), stateAnalog)
+        msg = "1/{0}/{1}/{2}".format(idAnalog, str(datetime.now()), stateAnalog)
         return msg
 
 def PosaljiPoruku(msg,port):

@@ -53,18 +53,25 @@ def Konekcija(port):
         client.close()
     server.close()
 
+
 def podelaPoruke(msg):
     values = msg.split('/')
-    localDeviceCode = values[0]
-    vreme = values[1]
-    actualValue = values[2]
-    return localDeviceCode, vreme, actualValue
+    tip = values[0]
+    localDeviceCode = values[1]
+    vreme = values[2]
+    actualValue = values[3]
+    return tip, localDeviceCode, vreme, actualValue
 
 def upisUTabelu(msg):
-    code, vreme, value = podelaPoruke(msg)
-    upit = "INSERT INTO amsschema.localdevice (DeviceCode, Vreme, ActualValue) VALUES (%s, %s, %s)"
-    vrednosti = (code, vreme, value)
-    konekcijaBaze(upit, vrednosti)
+    tip, code, vreme, value = podelaPoruke(msg)
+    if tip == "1":
+        upitAnalogni = "INSERT INTO amsschema.localdevice (DeviceCode, Vreme, ActualValue) VALUES (%s, %s, %s)"
+        vrednostiAnalogni = (code, vreme, value)
+        konekcijaBaze(upitAnalogni, vrednostiAnalogni)
+    elif tip == "2":
+        upitDigitalni = "INSERT INTO amsschema.localdevicedigital (DeviceCode, Vreme, ActualValue) VALUES (%s, %s, %s)"
+        vrednostiDigitalni = (code, vreme, value)
+        konekcijaBaze(upitDigitalni, vrednostiDigitalni)
 
 
 def Logovanje_liste_kontrolera():

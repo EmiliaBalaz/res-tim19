@@ -70,7 +70,7 @@ if __name__ == "__main__":
 
 
       elif(f == "DIGITALNI" and yy == "1"):
-          a = LokalniUredjaj.Uredjaj_funkcije.PromenaStanjaDigitalnogUredjaja( ID)
+          a = LokalniUredjaj.Uredjaj_funkcije.PromenaStanjeDigitalnogUredjaja( ID)
           while (a == "ERROR"):
               a = LokalniUredjaj.Uredjaj_funkcije.PromenaStanjaDigitalnogUredjaja( ID)
           LokalniUredjaj.Uredjaj_funkcije.PosaljiPoruku(a, int(port))
