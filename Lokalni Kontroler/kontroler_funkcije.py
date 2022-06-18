@@ -9,7 +9,7 @@ from Model.LocalDevice import LocalDevice
 from Common.TimeSim import TimeSimulation
 
 
-def Konekcija(localDeviceStorage:LocalDeviceStorage,port):
+def Konekcija(localDeviceStorage:LocalDeviceStorage,port, naziv):
     server=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     server.bind(('localhost',port))
     server.listen(10)
@@ -22,15 +22,49 @@ def Konekcija(localDeviceStorage:LocalDeviceStorage,port):
         temp= client.recv(1024);
         msg=temp.decode("utf-8")
         print(str(msg))
-        values = msg.split("/")
-        localDeviceValue = LocalDevice(values[0], values[1], values[2])
-        localDeviceStorage.AddNewDeviceValue(localDeviceValue)
+        #values = msg.split("/")
+        #localDeviceValue = LocalDevice(values[0], values[1], values[2])
+        #localDeviceStorage.AddNewDeviceValue(localDeviceValue)
+        Upisi_UXML(msg, naziv, port)
         client.close()
 
+def napraviXML(naziv, port):
+    root = ET.Element("DeviceValues")
+    tree = ET.ElementTree(root)
+    fileName = str(naziv) + "_" + str(port) + ".xml"
+    with open(fileName, "wb") as file:
+        tree.write(file)
 
-def IscitavanjePodataka():
-    lista = ET.parse("C:\\Users\\Cvijetin Glisic\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\deviceValues.xml")
+def Upisi_UXML(msg, naziv, port):
+    lista = ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\" + naziv + "_" + str(port) + ".xml")
     root = lista.getroot()
+
+    a=msg.split('/')
+
+    uredjaj = ET.SubElement(root, 'DeviceValue')
+
+    deviceCode = ET.SubElement(uredjaj, 'DeviceCode')
+
+    vreme = ET.SubElement(uredjaj, 'TimeStamp')
+
+    value = ET.SubElement(uredjaj, 'ActualValue')
+    deviceCode.text = a[0]
+
+    vreme.text = a[1]
+
+    value.text = a[2]
+    lista.write("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\" + naziv + "_" + str(port) + ".xml")
+
+
+def IscitavanjePodataka(port, naziv):
+    lista = ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\" + naziv + "_" + str(port) + ".xml")
+    root = lista.getroot()
+    while len(root) == 0:
+        try:
+            lista = ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\" + naziv + "_" + str(port) + ".xml")
+            root = lista.getroot()
+        finally:
+            pass
 
     for x in root:
         code = x[0].text
@@ -44,7 +78,7 @@ def IscitavanjePodataka():
 
 
         
-def Slanje_na_AMS(port):
+def Slanje_na_AMS(port, kontrolerPort, naziv):
     while (True):
 
         TimeSimulation.COUNT_START()
@@ -53,7 +87,7 @@ def Slanje_na_AMS(port):
         xx = TimeSimulation.TimePassed()  # provera samo da li radi
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect(("localhost", port))
-        code, timeStamp, value = IscitavanjePodataka()
+        code, timeStamp, value = IscitavanjePodataka(kontrolerPort, naziv)
 
         msg = "{0}/{1}/{2}".format(code, timeStamp, value)
         client.send(bytes(msg, 'utf-8'))
