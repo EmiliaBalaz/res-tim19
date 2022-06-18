@@ -3,13 +3,14 @@ import socket
 import time
 import sys
 import xml.etree.ElementTree as ET
+import threading
 from Model.LocalDeviceStorage import LocalDeviceStorage
 from Model.LocalDevice import LocalDevice
 #sys.path.insert(0,'..\\AMS\\TimeSim')
 from Common.TimeSim import TimeSimulation
 
 
-def Konekcija(localDeviceStorage:LocalDeviceStorage,port, naziv):
+def Konekcija(localDeviceStorage:LocalDeviceStorage,port, naziv, semaphore: threading.Semaphore):
     server=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     server.bind(('localhost',port))
     server.listen(10)
@@ -27,6 +28,7 @@ def Konekcija(localDeviceStorage:LocalDeviceStorage,port, naziv):
         #localDeviceStorage.AddNewDeviceValue(localDeviceValue)
         Upisi_UXML(msg, naziv, port)
         client.close()
+        semaphore.release(1)
 
 def napraviXML(naziv, port):
     root = ET.Element("DeviceValues")
@@ -78,9 +80,9 @@ def IscitavanjePodataka(port, naziv):
 
 
         
-def Slanje_na_AMS(port, kontrolerPort, naziv):
+def Slanje_na_AMS(port, kontrolerPort, naziv, semaphore: threading.Semaphore):
     while (True):
-
+        semaphore.acquire()
         TimeSimulation.COUNT_START()
         while (TimeSimulation.TimePassed() <= 300):  # 300 sekundi-5 minuta
             pass
