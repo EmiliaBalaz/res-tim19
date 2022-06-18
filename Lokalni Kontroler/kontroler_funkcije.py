@@ -43,16 +43,21 @@ def Upisi_UXML(msg, naziv, port):
 
     uredjaj = ET.SubElement(root, 'DeviceValue')
 
+    tip = ET.SubElement(uredjaj, 'tip')
+
     deviceCode = ET.SubElement(uredjaj, 'DeviceCode')
 
     vreme = ET.SubElement(uredjaj, 'TimeStamp')
 
     value = ET.SubElement(uredjaj, 'ActualValue')
-    deviceCode.text = a[0]
 
-    vreme.text = a[1]
+    tip.text = a[0]
 
-    value.text = a[2]
+    deviceCode.text = a[1]
+
+    vreme.text = a[2]
+
+    value.text = a[3]
     lista.write("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\" + naziv + "_" + str(port) + ".xml")
 
 
@@ -67,14 +72,15 @@ def IscitavanjePodataka(port, naziv):
             pass
 
     for x in root:
-        code = x[0].text
-        timeStamp = x[1].text
-        value = x[2].text
+        tip = x[0].text
+        code = x[1].text
+        timeStamp = x[2].text
+        value = x[3].text
         pass
     pass
     print("Podaci koji su iscitani iz XML-a")
-    print(code, timeStamp, value)
-    return code, timeStamp, value
+    print(tip, code, timeStamp, value)
+    return tip, code, timeStamp, value
 
 
         
@@ -87,17 +93,13 @@ def Slanje_na_AMS(port, kontrolerPort, naziv):
         xx = TimeSimulation.TimePassed()  # provera samo da li radi
         client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client.connect(("localhost", port))
-        code, timeStamp, value = IscitavanjePodataka(kontrolerPort, naziv)
+        tip, code, timeStamp, value = IscitavanjePodataka(kontrolerPort, naziv)
 
-        msg = "{0}/{1}/{2}".format(code, timeStamp, value)
+        msg = "{0}/{1}/{2}/{3}".format(tip, code, timeStamp, value)
         client.send(bytes(msg, 'utf-8'))
         client.close()
 
         
-
-    
-    
-   
 
 
      
