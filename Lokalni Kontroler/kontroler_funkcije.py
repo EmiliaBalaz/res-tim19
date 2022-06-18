@@ -79,7 +79,7 @@ def IscitavanjePodataka(port, naziv):
     return code, timeStamp, value
 
 
-        
+       
 def Slanje_na_AMS(port, kontrolerPort, naziv, semaphore: threading.Semaphore):
     while (True):
         semaphore.acquire()
