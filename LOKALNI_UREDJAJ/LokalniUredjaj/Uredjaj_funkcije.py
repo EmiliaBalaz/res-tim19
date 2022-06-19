@@ -7,7 +7,7 @@ import sys
 #from LOKALNI_UREDJAJ import Digitalni_Analogni
 
 
-putanja_razlika="Cvijetin Glisic"
+putanja_razlika="MSI"
 
 def Klijent_konekcija():
     print("Izaberite jedan od uredjaja: ")
