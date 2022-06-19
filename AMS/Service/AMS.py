@@ -1,3 +1,4 @@
+import socket
 import select, socket
 import xml.etree.ElementTree as ET
 
@@ -178,6 +179,3 @@ def Slanje_liste_Kontrolera():
       client.send(bytes(text, 'utf-8'))
       client.close()
     server.close()
-
-
-
