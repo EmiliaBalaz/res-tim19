@@ -1,7 +1,10 @@
 import select, socket
 import xml.etree.ElementTree as ET
 
-        
+
+putanja_razlika="Cvijetin Glisic"
+
+
 #class AMSService:
     #def __init__(self, servicePort):
         #self.servicePort = servicePort
@@ -28,7 +31,7 @@ import xml.etree.ElementTree as ET
                     #else:
                         #self.inputs.remove(s)
                         #s.close()
-from Konekcija.KonekcijaSaBazom import konekcijaBaze
+from AMS.Konekcija.KonekcijaSaBazom import konekcijaBaze
 
 
 def Konekcija(port):
@@ -116,7 +119,7 @@ def Brisaje_Dodavanje_Kontrolera(msg):
 
 def Delete_Kontroler(devname,port):
     lista = ET.parse(
-        "C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\AMS\\ListaKontrolera.xml")
+        "C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\AMS\\ListaKontrolera.xml")
 
     root = lista.getroot()
 
@@ -125,11 +128,11 @@ def Delete_Kontroler(devname,port):
         if (x[0].text == str(port)):
             forTest=x[0].text
             root.remove(x)
-    lista.write("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\AMS\\ListaKontrolera.xml")
+    lista.write("C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\AMS\\ListaKontrolera.xml")
     return forTest
 
 def Add_Controler(devname,port):
-    lista = ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\AMS\\ListaKontrolera.xml");
+    lista = ET.parse("C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\AMS\\ListaKontrolera.xml");
 
     root=lista.getroot()
 
@@ -140,12 +143,12 @@ def Add_Controler(devname,port):
     naziv=ET.SubElement(kontroler,'naziv')
     portt.text=str(port)
     naziv.text=str(devname)
-    lista.write("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\AMS\\ListaKontrolera.xml")
+    lista.write("C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\AMS\\ListaKontrolera.xml")
     return root[len(root)-1][0],root[len(root)-1][1]
 
 
 def Svi_Kontroleri():
-        lista = ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\AMS\\ListaKontrolera.xml")
+        lista = ET.parse("C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\AMS\\ListaKontrolera.xml")
         root = lista.getroot()
 
         LISTA=""

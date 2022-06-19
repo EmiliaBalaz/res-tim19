@@ -7,6 +7,8 @@ import sys
 #from LOKALNI_UREDJAJ import Digitalni_Analogni
 
 
+putanja_razlika="Cvijetin Glisic"
+
 def Klijent_konekcija():
     print("Izaberite jedan od uredjaja: ")
     print("1.Analogni")
@@ -86,7 +88,7 @@ def Primi_Kontrolere():
     return msg
 
 def Upisi_Kontrolere(msg):
-    lista = ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\LOKALNI_UREDJAJ\\LokalnaListaKontrolera.xml")
+    lista = ET.parse("C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\LOKALNI_UREDJAJ\\LokalnaListaKontrolera.xml")
     root = lista.getroot()
     root.clear()
     a=msg.split('&')
@@ -102,13 +104,21 @@ def Upisi_Kontrolere(msg):
         portt.text = y[0]
 
         naziv.text = y[1]
-        lista.write("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\LOKALNI_UREDJAJ\\LokalnaListaKontrolera.xml")
+
+
+    kontroler = ET.SubElement(root, 'Kontroler')
+    portt = ET.SubElement(kontroler, 'port')
+    naziv = ET.SubElement(kontroler, 'naziv')
+    portt.text = "50015"
+
+    naziv.text = "AMS"
+    lista.write("C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\LOKALNI_UREDJAJ\\LokalnaListaKontrolera.xml")
 
 
 
 
 def Izlistaj_Kontrolere():
-     lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\LOKALNI_UREDJAJ\\LokalnaListaKontrolera.xml")
+     lista=ET.parse("C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\LOKALNI_UREDJAJ\\LokalnaListaKontrolera.xml")
      root=lista.getroot()
      Dict ={}
      index = 0
@@ -120,7 +130,7 @@ def Izlistaj_Kontrolere():
      return Dict
 
 def SviKontroleri():
-    lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\LOKALNI_UREDJAJ\\LokalnaListaKontrolera.xml")
+    lista=ET.parse("C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\LOKALNI_UREDJAJ\\LokalnaListaKontrolera.xml")
     root=lista.getroot()
     Dict={}
     index=0
