@@ -199,3 +199,12 @@ def Slanje_liste_Kontrolera():
       client.send(bytes(text, 'utf-8'))
       client.close()
     server.close()
+
+
+def brRadnihSatiAnalogni(uredjaj, pocetak, kraj):
+    upitCasovi = "SELECT min(Vreme), max(Vreme) from amsschema.localdevice WHERE Vreme BETWEEN" + "\'" + pocetak +"\'"+  "and" + "\'" + kraj +"\'" + "and DeviceCode= " + "\'" + uredjaj +"\'"
+    return konekcijaBaze(upitCasovi)
+
+def brRadnihSatiDigitalni(uredjaj, pocetak, kraj):
+    upitCasovi = "SELECT min(Vreme), max(Vreme) from amsschema.localdevicedigital WHERE Vreme BETWEEN" + "\'" + pocetak + "\'" + "and" + "\'" + kraj + "\'" + "and DeviceCode= " + "\'" + uredjaj + "\'"
+    return konekcijaBaze(upitCasovi)

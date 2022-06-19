@@ -21,6 +21,44 @@ if __name__ == '__main__':
         for x in digitalni:
             print(x[0])
 
+    if i == "3":
+        print("Izaberite uredjaj: ")
+        print("1.ANALOGNI")
+        print("2.DIGITALNI")
+        vrstaU = input()
+        if vrstaU == "1":
+            print("Unesite ime: ")
+            uredjaj = input()
+            print("Unesite pocetno vreme u formatu npr: gggg-mm-dd ss:mm:ss")
+            pocetno = input()
+            print("Unesite krajnje vreme u formatu npr: gggg-mm-dd ss:mm:ss")
+            krajnje = input()
+            vrednosti = brRadnihSatiAnalogni(uredjaj, pocetno, krajnje)
+            minimalni = vrednosti[0][0]
+            maximalni = vrednosti[0][1]
+            sati = maximalni - minimalni
+            asd = sati.total_seconds()
+            minutiOdradjeni = divmod(asd, 60)[0]
+            print("Odradjeni minuti uredjaja: " + str(minutiOdradjeni))
+        elif vrstaU == "2":
+            print("Unesite ime: ")
+            uredjaj = input()
+            print("Unesite pocetno vreme u formatu npr: gggg-mm-dd ss:mm:ss")
+            pocetno = input()
+            print("Unesite krajnje vreme u formatu npr: gggg-mm-dd ss:mm:ss")
+            krajnje = input()
+            vrednosti = brRadnihSatiDigitalni(uredjaj, pocetno, krajnje)
+            minimalni = vrednosti[0][0]
+            maximalni = vrednosti[0][1]
+            sati = maximalni - minimalni
+            asd = sati.total_seconds()
+            minutiOdradjeni = divmod(asd, 60)[0]
+            print("Odradjeni minuti uredjaja: " + str(minutiOdradjeni))
+
+
+
+
+
     if i == "4":
         print("Izaberite uredjaj: ")
         print("1.ANALOGNI")
