@@ -5,7 +5,7 @@ import socket
 import time
 
 import mock
-from LOKALNI_UREDJAJ.LokalniUredjaj.Uredjaj_funkcije import PonovoUnesiStanjeA
+from LokalniUredjaj.Uredjaj_funkcije import PonovoUnesiStanjeA
 
 class MyTestCase(unittest.TestCase):
     def test_case1(self):

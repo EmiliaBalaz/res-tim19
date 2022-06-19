@@ -14,9 +14,10 @@ if __name__ == "__main__":
 
 
    
+    print(LokalniUredjaj.Uredjaj_funkcije.Primi_Kontrolere())
+    LokalniUredjaj.Uredjaj_funkcije.Upisi_Kontrolere(LokalniUredjaj.Uredjaj_funkcije.Primi_Kontrolere())
     print("LISTA DOSTUPNIH KONTROLERA:")
     LokalniUredjaj.Uredjaj_funkcije.Izlistaj_Kontrolere()
-    
     print()
     print()
     print()
@@ -69,7 +70,7 @@ if __name__ == "__main__":
 
 
       elif(f == "DIGITALNI" and yy == "1"):
-          a = LokalniUredjaj.Uredjaj_funkcije.PromenaStanjaDigitalnogUredjaja( ID)
+          a = LokalniUredjaj.Uredjaj_funkcije.PromenaStanjeDigitalnogUredjaja( ID)
           while (a == "ERROR"):
               a = LokalniUredjaj.Uredjaj_funkcije.PromenaStanjaDigitalnogUredjaja( ID)
           LokalniUredjaj.Uredjaj_funkcije.PosaljiPoruku(a, int(port))

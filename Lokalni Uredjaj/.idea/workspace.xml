@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f2831998-5679-463d-8514-053f3039040c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/res-tim19.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/res-tim19.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/ProjectSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/ProjectSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vs/VSWorkspaceState.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.vs/VSWorkspaceState.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/.idea/AMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/.idea/AMS.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/Konekcija/KonekcijaSaBazom.py" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/Konekcija/KonekcijaSaBazom.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/ListaKontrolera.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/ListaKontrolera.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/Model/LocalDevice.py" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/Model/LocalDevice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/Model/LocalDeviceStorage.py" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/Model/LocalDeviceStorage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/Service/AMS.py" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/Service/AMS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/Service/Thread_Funkcije.py" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/Service/Thread_Funkcije.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/TimeSim/TimeSim.py" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/TimeSim/TimeSim.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/TimeSim/TimeSimConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/TimeSim/TimeSimConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AMS/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../AMS/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/AMSDatabaseInitialization.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/AMSDatabaseInitialization.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/.idea/Lokalni Uredjaj.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/.idea/Lokalni Uredjaj.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Digitalni_Analogni.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Digitalni_Analogni.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/LokalnaListaKontrolera.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/LokalnaListaKontrolera.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Lokalni Uredjaj.pyproj" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Lokalni Uredjaj.pyproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/LokalniUredjaj/Lokalni_Uredjaj.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/LokalniUredjaj/Lokalni_Uredjaj.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/LokalniUredjaj/Uredjaj_funkcije.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/LokalniUredjaj/Uredjaj_funkcije.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Lokalni_Uredjaj.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Lokalni_Uredjaj.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_IntTryParse.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_IntTryParse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_IzlistajKontrolere_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_IzlistajKontrolere_Test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_KlijentKonekcija.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_KlijentKonekcija.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_PonovoUnesiStanjeA.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_PonovoUnesiStanjeA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_PonovoUnesiStanjeD.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_PonovoUnesiStanjeD.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_PromenaStanjaAnalognogUredjaja.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_PromenaStanjaAnalognogUredjaja.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_PromenaStanjaDigitalnogUredjaja.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_PromenaStanjaDigitalnogUredjaja.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_SviKontroleri_Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_SviKontroleri_Test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_UnosAnalognogUredjaja.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_UnosAnalognogUredjaja.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_UnosDigitalnogUredjaja.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_UnosDigitalnogUredjaja.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_Unos_porta.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_Unos_porta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_stringTryParse.py" beforeDir="false" afterPath="$PROJECT_DIR$/../LOKALNI_UREDJAJ/Testovi/test_stringTryParse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../Lokalni Kontroler/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/.idea/Lokalni Kontroler.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lokalni Kontroler/.idea/Lokalni Kontroler.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lokalni Kontroler/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lokalni Kontroler/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lokalni Kontroler/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/Common/TimeSim.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Lokalni Kontroler/Common/TimeSim.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/Common/TimeSimConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lokalni Kontroler/Common/TimeSimConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/Common/XMLWritter.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Lokalni Kontroler/Common/XMLWritter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/Lokalni Kontroler.pyproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Lokalni Kontroler/Lokalni Kontroler.pyproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/Lokalni_Kontroler.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Lokalni Kontroler/Lokalni_Kontroler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/Model/LocalDevice.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Lokalni Kontroler/Model/LocalDevice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/Model/LocalDeviceStorage.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Lokalni Kontroler/Model/LocalDeviceStorage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/k2_50006.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/k_50009.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lokalni Kontroler/kontroler_funkcije.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Lokalni Kontroler/kontroler_funkcije.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Lokalni Uredjaj.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Lokalni Uredjaj.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2AkkHmxMDnXdpAutybQEwcATIwW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/MSI/Documents/GitHub/res-tim19/Lokalni Uredjaj&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f2831998-5679-463d-8514-053f3039040c" name="Changes" comment="" />
+      <created>1655560884475</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655560884475</updated>
+    </task>
+    <servers />
+  </component>
+</project>

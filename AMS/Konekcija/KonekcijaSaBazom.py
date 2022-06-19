@@ -1,7 +1,7 @@
 import mysql.connector
 from mysql.connector import Error
 
-def konekcija(upit):
+def konekcijaBaze(upit, vrednosti):
     try:
         connection = mysql.connector.connect(host='localhost',
                                              database='AMS',
@@ -12,8 +12,9 @@ def konekcija(upit):
             db_Info = connection.get_server_info()
             print("Connected to MySQL Server version ", db_Info)
             cursor = connection.cursor()
-            cursor.execute(upit)
+            cursor.execute(upit, vrednosti)
             record = cursor.fetchone()
+            connection.commit()
             print("You're connected to database: ", record)
     except Error as e:
         print("Error while connecting to MySQL", e)
@@ -24,4 +25,3 @@ def konekcija(upit):
             print("MySQL connection is closed")
 
 
-konekcija("select database();")

@@ -1,7 +1,7 @@
 import unittest 
 
 import mock
-from LOKALNI_UREDJAJ.LokalniUredjaj.Uredjaj_funkcije import PonovoUnesiStanjeD
+from LokalniUredjaj.Uredjaj_funkcije import PonovoUnesiStanjeD
 
 class MyTestCase(unittest.TestCase):
     def test_case1(self):
