@@ -2,7 +2,7 @@ import time
 import xml.etree.ElementTree as ET
 
 def ReadSimTime():
-    lista=ET.parse("C:\\Users\\Cvijetin Glisic\\Desktop\\GIT_REPOZITORIJUM\\GIT\AMS\\TimeSim\\TimeSimConfig.xml")
+    lista=ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\AMS\\TimeSim\\TimeSimConfig.xml")
     root=lista.getroot()
     a=int(root[0].text)
     return a

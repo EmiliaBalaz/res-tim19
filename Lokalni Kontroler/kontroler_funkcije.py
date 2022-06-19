@@ -9,7 +9,7 @@ from Model.LocalDevice import LocalDevice
 #sys.path.insert(0,'..\\AMS\\TimeSim')
 from Common.TimeSim import TimeSimulation
 
-putanja_razlika="Cvijetin Glisic"
+putanja_razlika="MSI"
 
 
 def Konekcija(localDeviceStorage:LocalDeviceStorage,port, naziv, semaphore: threading.Semaphore):
