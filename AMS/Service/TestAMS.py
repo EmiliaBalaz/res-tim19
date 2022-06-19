@@ -5,7 +5,7 @@ from AMS import podelaPoruke, Brisaje_Dodavanje_Kontrolera
 
 class TestAMS(unittest.TestCase):
     def test_podela_poruke(self):
-        self.assertEqual(('12345678', '1655589183', '999'), podelaPoruke('12345678/1655589183/999'))
+        self.assertEqual(('tip', '12345678', '1655589183', '999'), podelaPoruke('tip/12345678/1655589183/999'))
 
         with self.assertRaises(IndexError) as ie:
             podelaPoruke('')
