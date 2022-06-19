@@ -36,7 +36,7 @@ def Konekcija(port):
 
     server.bind(('localhost', port))
 
-    server.listen(10)
+    server.listen(1000)
     print("--SERVER CEKA NOVE KONEKCIJE!--")
     while (True):
         client, client_address = server.accept();
