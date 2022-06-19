@@ -2,7 +2,7 @@ import select, socket
 import xml.etree.ElementTree as ET
 
 
-putanja_razlika="Cvijetin Glisic"
+putanja_razlika="MSI"
 
 
 #class AMSService:
@@ -31,7 +31,7 @@ putanja_razlika="Cvijetin Glisic"
                     #else:
                         #self.inputs.remove(s)
                         #s.close()
-from AMS.Konekcija.KonekcijaSaBazom import konekcijaBaze
+from Konekcija.KonekcijaSaBazom import konekcijaBaze
 
 
 def Konekcija(port):
@@ -68,14 +68,34 @@ def podelaPoruke(msg):
 def upisUTabelu(msg):
     tip, code, vreme, value = podelaPoruke(msg)
     if tip == "1":
-        upitAnalogni = "INSERT INTO amsschema.localdevice (DeviceCode, Vreme, ActualValue) VALUES (%s, %s, %s)"
-        vrednostiAnalogni = (code, vreme, value)
-        konekcijaBaze(upitAnalogni, vrednostiAnalogni)
+        upitAnalogni = "INSERT INTO amsschema.localdevice (DeviceCode, Vreme, ActualValue) VALUES" + "(" + "\'" + code + "\'" + "," + "\'" + vreme + "\'" + "," + value + ")"
+        konekcijaBaze(upitAnalogni)
     elif tip == "2":
-        upitDigitalni = "INSERT INTO amsschema.localdevicedigital (DeviceCode, Vreme, ActualValue) VALUES (%s, %s, %s)"
-        vrednostiDigitalni = (code, vreme, value)
-        konekcijaBaze(upitDigitalni, vrednostiDigitalni)
+        upitDigitalni = "INSERT INTO amsschema.localdevicedigital (DeviceCode, Vreme, ActualValue) VALUES" + "(" + "\'" + code + "\'" + "," + "\'" + vreme + "\'" + "," +"\'" + value + "\'" + ")"
+        konekcijaBaze(upitDigitalni)
 
+def izlistajSveAnalogneUredjaje():
+    upitIzlistaj = "SELECT DISTINCT DeviceCode from amsschema.localdevice"
+    return konekcijaBaze(upitIzlistaj)
+
+def izlistajSveDigitalneUredjaje():
+    upitIzlistaj = "SELECT DISTINCT DeviceCode from amsschema.localdevicedigital"
+    return konekcijaBaze(upitIzlistaj)
+
+
+def iscitavanjeRadnihMinuta():
+    lista = ET.parse("C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\AMS\\limitRadnihSati.xml")
+    root = lista.getroot()
+    radniMinuti = root[0].text
+    return radniMinuti
+
+def brSatiPrekoKonfigurisaneVrednostiAnalogni():
+    upit = "SELECT DeviceCode, max(Vreme), min(Vreme) from amsschema.localdevice group by DeviceCode"
+    return konekcijaBaze(upit)
+
+def brSatiPrekoKonfigurisaneVrednostiDigitalni():
+    upitD = "SELECT DeviceCode, max(Vreme), min(Vreme) from amsschema.localdevicedigital group by DeviceCode"
+    return konekcijaBaze(upitD)
 
 def Logovanje_liste_kontrolera():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
