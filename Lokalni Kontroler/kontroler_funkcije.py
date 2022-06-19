@@ -9,6 +9,8 @@ from Model.LocalDevice import LocalDevice
 #sys.path.insert(0,'..\\AMS\\TimeSim')
 from Common.TimeSim import TimeSimulation
 
+putanja_razlika="Cvijetin Glisic"
+
 
 def Konekcija(localDeviceStorage:LocalDeviceStorage,port, naziv, semaphore: threading.Semaphore):
     server=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
@@ -38,7 +40,7 @@ def napraviXML(naziv, port):
         tree.write(file)
 
 def Upisi_UXML(msg, naziv, port):
-    lista = ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\" + naziv + "_" + str(port) + ".xml")
+    lista = ET.parse("C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\" + naziv + "_" + str(port) + ".xml")
     root = lista.getroot()
 
     a=msg.split('/')
@@ -60,15 +62,15 @@ def Upisi_UXML(msg, naziv, port):
     vreme.text = a[2]
 
     value.text = a[3]
-    lista.write("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\" + naziv + "_" + str(port) + ".xml")
+    lista.write("C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\" + naziv + "_" + str(port) + ".xml")
 
 
 def IscitavanjePodataka(port, naziv):
-    lista = ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\" + naziv + "_" + str(port) + ".xml")
+    lista = ET.parse("C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\" + naziv + "_" + str(port) + ".xml")
     root = lista.getroot()
     while len(root) == 0:
         try:
-            lista = ET.parse("C:\\Users\\MSI\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\" + naziv + "_" + str(port) + ".xml")
+            lista = ET.parse("C:\\Users\\"+putanja_razlika+"\\Documents\\GitHub\\res-tim19\\Lokalni Kontroler\\" + naziv + "_" + str(port) + ".xml")
             root = lista.getroot()
         finally:
             pass
@@ -89,6 +91,7 @@ def IscitavanjePodataka(port, naziv):
 def Slanje_na_AMS(port, kontrolerPort, naziv, semaphore: threading.Semaphore):
     while (True):
         semaphore.acquire()
+
         TimeSimulation.COUNT_START()
         while (TimeSimulation.TimePassed() <= 300):  # 300 sekundi-5 minuta
             pass
