@@ -200,7 +200,6 @@ def Slanje_liste_Kontrolera():
       client.close()
     server.close()
 
-
 def brRadnihSatiAnalogni(uredjaj, pocetak, kraj):
     upitCasovi = "SELECT min(Vreme), max(Vreme) from amsschema.localdevice WHERE Vreme BETWEEN" + "\'" + pocetak +"\'"+  "and" + "\'" + kraj +"\'" + "and DeviceCode= " + "\'" + uredjaj +"\'"
     return konekcijaBaze(upitCasovi)
@@ -208,3 +207,19 @@ def brRadnihSatiAnalogni(uredjaj, pocetak, kraj):
 def brRadnihSatiDigitalni(uredjaj, pocetak, kraj):
     upitCasovi = "SELECT min(Vreme), max(Vreme) from amsschema.localdevicedigital WHERE Vreme BETWEEN" + "\'" + pocetak + "\'" + "and" + "\'" + kraj + "\'" + "and DeviceCode= " + "\'" + uredjaj + "\'"
     return konekcijaBaze(upitCasovi)
+
+def svePromeneUIntervaluAnalogni(uredjaj, pocetak, kraj):
+    upitSvePromene = "SELECT DeviceCode, ActualValue from amsschema.localdevice WHERE Vreme BETWEEN" + "\'" + pocetak +"\'"+  "and" + "\'" + kraj +"\'" + "and DeviceCode= " + "\'" + uredjaj +"\'"
+    return konekcijaBaze(upitSvePromene)
+
+def svePromeneUIntervaluDigitalni(uredjaj, pocetak, kraj):
+    upitSvePromene = "SELECT DeviceCode, ActualValue from amsschema.localdevicedigital WHERE Vreme BETWEEN" + "\'" + pocetak + "\'" + "and" + "\'" + kraj + "\'" + "and DeviceCode= " + "\'" + uredjaj + "\'"
+    return konekcijaBaze(upitSvePromene)
+
+def sumarnoAnalogni(uredjaj, pocetak, kraj):
+    upitSumarno = "SELECT DeviceCode, count(ActualValue) from amsschema.localdevice WHERE Vreme BETWEEN" + "\'" + pocetak +"\'"+  "and" + "\'" + kraj +"\'" + "and DeviceCode= " + "\'" + uredjaj +"\'"
+    return konekcijaBaze(upitSumarno)
+
+def sumarnoDigitalni(uredjaj, pocetak, kraj):
+    upitSumarno = "SELECT DeviceCode, count(ActualValue) from amsschema.localdevicedigital WHERE Vreme BETWEEN" + "\'" + pocetak + "\'" + "and" + "\'" + kraj + "\'" + "and DeviceCode= " + "\'" + uredjaj + "\'"
+    return konekcijaBaze(upitSumarno)

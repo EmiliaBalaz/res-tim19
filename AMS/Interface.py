@@ -20,7 +20,37 @@ if __name__ == '__main__':
         print("Digitalni uredjaji: ")
         for x in digitalni:
             print(x[0])
-
+    if i == "2":
+        print("Izaberite uredjaj: ")
+        print("1.ANALOGNI")
+        print("2.DIGITALNI")
+        vrstaU = input()
+        if vrstaU == "1":
+            print("Unesite ime: ")
+            uredjaj = input()
+            print("Unesite pocetno vreme u formatu npr: gggg-mm-dd ss:mm:ss")
+            pocetno = input()
+            print("Unesite krajnje vreme u formatu npr: gggg-mm-dd ss:mm:ss")
+            krajnje = input()
+            promene = svePromeneUIntervaluAnalogni(uredjaj, pocetno, krajnje)
+            suma = sumarnoAnalogni(uredjaj, pocetno, krajnje)
+            print("Element " + promene[0][0])
+            for x in promene:
+                print(x[1])
+            print("Suma je: " + str(suma[0][1]))
+        elif vrstaU == "2":
+            print("Unesite ime: ")
+            uredjaj = input()
+            print("Unesite pocetno vreme u formatu npr: gggg-mm-dd ss:mm:ss")
+            pocetno = input()
+            print("Unesite krajnje vreme u formatu npr: gggg-mm-dd ss:mm:ss")
+            krajnje = input()
+            promene = svePromeneUIntervaluDigitalni(uredjaj, pocetno, krajnje)
+            suma = sumarnoDigitalni(uredjaj, pocetno, krajnje)
+            print("Element " + promene[0][0])
+            for x in promene:
+                print(x[1])
+            print("Suma je: " + str(suma[0][1]))
     if i == "3":
         print("Izaberite uredjaj: ")
         print("1.ANALOGNI")
